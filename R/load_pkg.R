@@ -14,8 +14,6 @@ load_pkg <- function(packagelist) {
   if(length(PackagesNeedingInstall)) install.packages(PackagesNeedingInstall)
 
 # load packages into R:
-  for (i in seq_along(packagelist) ) {
-    library(packagelist[i], character.only = TRUE)
-  }
-
+  lapply(packagelist, library, character.only = TRUE)
+  
 }
